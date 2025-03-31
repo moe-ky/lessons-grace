@@ -11,7 +11,14 @@ Skills Tested:
 ✅ Using a loop to limit attempts
 give the user a hint any of their numbers 
 being present in the computer generated numbers
-when they have given a wrong number"""
+when they have given a wrong number
+
+User Hint: home work - 2025-04-01
+You need to let the user know how many numbers they have guess correctly 
+e.g. if code is 234 and user guess is 435 it should let them know that they have guessed 2 numbers correctly (i.e. 3 and 4)
+you will need an array / list to store all the correct guesses
+and you will need to use the length of the array / list to let the user know how many numbers they guessed correctly
+"""
 
 
 import random
