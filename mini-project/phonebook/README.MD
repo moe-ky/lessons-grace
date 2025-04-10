@@ -22,3 +22,16 @@ CHALLENGE 2 => Data Persistence
         - write to a file
     - you will need to change your logic flow to accommodate for the use of a file
 
+    APP FLOW:
+        - when you run the application
+        - it will check / load a file that is going to be the store for your contacts
+        - when someone adds a contact, it gets added to the file 
+        - when the application exits, you should be able to see the person in the file
+        - when you run the application again and search for the person - you should be able to fine them 
+
+    additional ask:
+        - please add 5 contacts to the pone book file
+        - in the session we will use your phone book function to interact with the file
+
+
+
