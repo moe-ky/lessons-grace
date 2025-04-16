@@ -1,4 +1,21 @@
-phone_book = {}
+
+
+def save_contacts(phone_book, filename="phone_book.txt"):
+    with open('phone_book.txt', "w") as file:
+        for line in phone_book.items():
+            file.write(f"{name}:{number}\n")
+
+
+def load_contacts(filename="phone_book.txt"):
+    phone_book = {}
+    try:
+        with open(filename, "r") as file:
+            for line in file:
+                name, number = line.strip().split(":")
+                phone_book[name] = number
+    except FileNotFoundError:
+        pass
+    return phone_book
 
 
 def add_contact(name, number):
@@ -49,6 +66,8 @@ def display_contacts(phone_book):
 
 
 def contact():
+    phone_book = load_contacts()
+    print(phone_book)
     while True:
         print('\nWelcome to the Phone Book App')
         print('1. add contact')
