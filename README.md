@@ -7,6 +7,6 @@ lessons-grace
 - [Terraform Infrastructure AS Code](https://youtu.be/tomUWcQ0P3k?si=Bxt5SZMjjBU22zSl)
 
 ### common git commands (research them)
-- git pull
+- git pull: pull in the latest changes
 - git commit
 - git push
