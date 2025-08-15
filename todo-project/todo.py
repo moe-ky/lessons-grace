@@ -7,13 +7,16 @@ with open('todo.json', 'r') as file:
     todo_item = json.load(file)
     print(f"Loaded todo items: {todo_item}")
     
-    
-def save_todo_items(todo_dict):
+with open('completion.json', 'r') as file:
+    status_update = json.load(file)
+    print(f"Loaded todo items: {status_update}")
+
+def save_todo_items(dict, file):
     """
     Save the todo items to a JSON file.
     """
-    with open('todo.json', 'w') as file:
-        json.dump(todo_dict, file, indent=4)
+    with open(file, 'w') as file:
+        json.dump(dict, file, indent=4)
 
 """
 task: add a new item to the todo list
@@ -56,7 +59,10 @@ def add_todo_item(todo_dict, description):
     length_of_dict = len(todo_dict)
     new_id = length_of_dict + 1
     todo_dict.update({new_id: description})
-    save_todo_items(todo_dict)
+    status_update.update({new_id: "incomplete"})
+    save_todo_items(todo_dict, 'todo.json')
+    save_todo_items(status_update, 'completion.json')
+    
 
 # add_todo_item(todo_item, 3, 'walk the dog')
 
@@ -112,9 +118,14 @@ result: todo_item = {1: 'buy groceries (completed)', 3: 'walk the dog'}
 whats happened: the function updates the description of the specified item to indicate it is completed
 """
 def complete_todo_item(todo_dict, item_id):
-    retrieved_action = todo_dict.get(item_id)
-    retrieved_action_update = f"{retrieved_action} (completed)"
-    todo_dict.update({item_id: retrieved_action_update })
+    #item id is listed as completed in the completion.json
+    status_update.update({item_id: "complete"})
+    description = todo_dict.get(item_id)
+    updated_description = f"{description} (completed)"
+    todo_dict.update({item_id: updated_description})
+    save_todo_items(status_update, 'completion.json')
+    save_todo_items(todo_dict, 'todo.json')
+
 
 # complete_todo_item(todo_item, 1)
 # list_todo_items(todo_item)
@@ -146,3 +157,15 @@ if action == 'delete':
     delete_todo_item(todo_item, details)
     list_todo_items(todo_item)
 
+
+"""
+task: create some logic to handle when the user want to mark an item as completed
+if action is 'done', call the complete_todo_item function with the item_id provided
+example usage: python todo.py complete 1
+result: todo_item = {1: 'buy groceries (completed)', 3: 'walk the dog'}
+whats happened: the scrip checks if the action is 'complete', and if so, it calls the complete_todo_item function with the provided item_id
+"""
+
+if action == 'done':
+    complete_todo_item(todo_item, details)
+    list_todo_items(todo_item)
