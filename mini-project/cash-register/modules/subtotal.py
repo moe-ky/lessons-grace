@@ -12,3 +12,17 @@ acceptance criteria
     unknown items are skipped silently
     correct total, rounding to 2 decimals
 """
+
+def subtotal(price_list, basket):
+    total = 0.0
+    for item in basket:
+        name_of_item = item[0]
+        quantity_of_item = item[1]
+        if quantity_of_item <= 0:
+            print("ignoring items with 0 value")
+        else:    
+            if name_of_item in price_list:
+                total += price_list[name_of_item] * quantity_of_item   
+            else:
+                print(f"unknown item '{name_of_item}' ignored")
+    return round(total, 2)
