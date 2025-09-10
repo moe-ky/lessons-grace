@@ -17,9 +17,6 @@ if it does exist, return the cost of item,
 if it doesn't return 'none'
 
 """
-PRICE_LIST = {"apple": 0.80, "bread": 1.50, "milk": 1.15, "banana": 0.30}
-
+from const import PRICE_LIST
 def lookup_price(price_list=PRICE_LIST, item=""):
     return price_list.get(item, None)
-
-print(lookup_price(PRICE_LIST, "apple")) # -> 0.80
