@@ -27,9 +27,3 @@ def subtotal(price_list, basket):
         basket_total += line_total(price_list, item)
     # prices = [line_total(price_list, item) for item in basket]
     return basket_total
-
-
-print(subtotal(PRICE_LIST, [("apple", 2), ("bread", 1)]))
-print(subtotal(PRICE_LIST, []))
-print(subtotal(PRICE_LIST, [("banana", -1), ("eggs", 3)]))
-print(subtotal({}, [("apple", 2), ("bread", 1)]))
