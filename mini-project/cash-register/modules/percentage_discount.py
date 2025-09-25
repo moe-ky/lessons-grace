@@ -34,3 +34,15 @@ and elif any above 100, 100
 # in the else block calculate percentage
 
 """
+import subtotal
+percent = percent_off /100
+def apply_percentage_discount(subtotal, percent_off):
+    if percent_off <=0:
+       return 0.00
+    elif percent_off => 100:
+        return 100.00
+   else:
+        discount = subtotal * percent
+        discounted_amout = subtotal - discount 
+        return(round(discounted_amount)2)
+ 
