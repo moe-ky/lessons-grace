@@ -60,8 +60,3 @@ def add_to_basket(basket, name, qty):
             new_basket.append((name, qty))
     
     return new_basket
-    
-
-print("result ==>", add_to_basket([], "apple", 2))
-# print("result ==>", add_to_basket([("apple", 2)], "apple", 3))
-# print("result ==>", add_to_basket([("bread", 1)], "bread", 0))
